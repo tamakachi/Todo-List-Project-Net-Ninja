@@ -35,9 +35,14 @@ todos.addEventListener("click",(e)=>{
 
 const filterTodos = (searchTerm)=>{
     console.log(searchTerm)
+
     Array.from(todos.children)
-        .filter((todo)=>!todo.textContent.includes(searchTerm))
+        .filter((todo)=>!todo.textContent.toLowerCase().includes(searchTerm.toLowerCase()))
         .forEach((todo)=>todo.classList.add('filtered'))
+
+        Array.from(todos.children)
+        .filter((todo)=>todo.textContent.toLowerCase().includes(searchTerm.toLowerCase()))
+        .forEach((todo)=>todo.classList.remove('filtered'))
 }
 
 // keyup for search event
